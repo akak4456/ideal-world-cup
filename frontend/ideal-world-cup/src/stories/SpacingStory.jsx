@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Spacing from '../ui/Spacing';
-import { css } from '../components/withStyles';
+import { css } from '../ui/withStyles';
 
 function RedBox({ children }) {
   return <div {...css({ border: '1px red solid', minHeight: 100 })}>{children}</div>;

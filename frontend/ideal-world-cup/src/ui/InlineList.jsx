@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, css, withStylesPropTypes } from '../components/withStyles';
-import { unit } from '../components/Theme';
+import { withStyles, css, withStylesPropTypes } from './withStyles';
+import { unit } from './Theme';
 
 class InlineList extends PureComponent {
   render() {

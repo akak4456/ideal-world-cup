@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, css } from '../components/withStyles';
+import { withStyles, css } from './withStyles';
 
 class Button extends PureComponent {
   render() {

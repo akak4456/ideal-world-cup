@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { css } from '../components/withStyles';
-import { unit } from '../components/Theme';
+import { css } from './withStyles';
+import { unit } from './Theme';
 
 export const propTypes = {
   top: PropTypes.number,

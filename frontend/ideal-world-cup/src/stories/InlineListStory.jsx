@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import InlineList from '../ui/InlineList';
-import { css } from '../components/withStyles';
+import { css } from '../ui/withStyles';
 
 function RedBox({ children }) {
   return (
