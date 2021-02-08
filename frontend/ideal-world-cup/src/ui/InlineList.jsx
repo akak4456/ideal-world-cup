@@ -5,7 +5,7 @@ import { unit } from './Theme';
 
 class InlineList extends PureComponent {
   render() {
-    const { align, children, styles, spacingBetween, verticalAlign } = this.props;
+    const { align, children, styles, spacingBetween, verticalAlign, sameRatio } = this.props;
     return (
       <div
         {...css(
@@ -16,8 +16,10 @@ class InlineList extends PureComponent {
           verticalAlign === 'bottom' && styles.verticalAlignBottom,
         )}
       >
-        {React.Children.map(children, (child) => (
-          <div {...css({ marginRight: spacingBetween * unit })}>{child}</div>
+        {React.Children.map(children, (child, idx) => (
+          <div {...css({ marginRight: spacingBetween * unit }, sameRatio && styles.sameRatio)}>
+            {child}
+          </div>
         ))}
       </div>
     );
@@ -30,6 +32,7 @@ InlineList.propTypes = {
   verticalAlign: PropTypes.oneOf(['top', 'middle', 'bottom']),
   spacingBetween: PropTypes.number,
   children: PropTypes.node,
+  ratio: PropTypes.array,
 };
 
 InlineList.defaultProps = {
@@ -55,5 +58,8 @@ export default withStyles(() => ({
   },
   verticalAlignBottom: {
     alignItems: 'flex-end',
+  },
+  sameRatio: {
+    flex: '1',
   },
 }))(InlineList);

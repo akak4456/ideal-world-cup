@@ -46,4 +46,11 @@ storiesOf('ui/InlineList', module)
       <RedBox>2</RedBox>
       <RedBox>3</RedBox>
     </InlineList>
+  ))
+  .addWithJSX('같은 비율(1:1:1 분할)', () => (
+    <InlineList sameRatio>
+      <RedBox>1</RedBox>
+      <RedBox>2</RedBox>
+      <RedBox>3</RedBox>
+    </InlineList>
   ));
