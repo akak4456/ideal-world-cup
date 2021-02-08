@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Button from '../components/ui/Button';
 
-storiesOf('Button', module)
+storiesOf('ui/Button', module)
   .addWithJSX('기본 설정', () => <Button>전송하기</Button>)
   .addWithJSX('disabled 예제', () => <Button disabled>전송하기</Button>)
   .addWithJSX('xsmall 예제', () => <Button xsmall>전송하기</Button>)

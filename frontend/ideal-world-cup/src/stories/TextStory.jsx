@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Text from '../components/ui/Text';
 
-storiesOf('Text', module)
+storiesOf('ui/Text', module)
   .addWithJSX('기본 설정', () => <Text>안녕하세요</Text>)
   .addWithJSX('bold 예제', () => <Text bold>안녕하세요</Text>)
   .addWithJSX('light 예제', () => <Text light>안녕하세요</Text>)
