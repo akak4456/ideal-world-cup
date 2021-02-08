@@ -18,4 +18,11 @@ describe('<Text>', () => {
         .includes('테스트'),
     ).toBe(true);
   });
+  it('calls back onClick on button click', () => {
+    const clickStub = jest.fn();
+    const wrapper = shallow(<Button onPress={clickStub}>테스트</Button>);
+    expect(clickStub).not.toHaveBeenCalled();
+    wrapper.dive().find('button').simulate('click', {});
+    expect(clickStub).toHaveBeenCalledTimes(1);
+  });
 });
