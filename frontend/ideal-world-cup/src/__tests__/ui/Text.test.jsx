@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Text from '../../components/ui/Text';
+import Text from '../../ui/Text';
 
 describe('<Text>', () => {
   it('renders without crashing', () => {

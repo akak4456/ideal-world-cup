@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Button from '../components/ui/Button';
+import Button from '../ui/Button';
 
 storiesOf('ui/Button', module)
   .addWithJSX('기본 설정', () => <Button>전송하기</Button>)

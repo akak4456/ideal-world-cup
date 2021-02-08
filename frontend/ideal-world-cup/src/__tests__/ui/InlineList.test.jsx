@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import InlineList from '../../components/ui/InlineList';
+import InlineList from '../../ui/InlineList';
 
 describe('<InlineList>', () => {
   it('renders without crashing', () => {

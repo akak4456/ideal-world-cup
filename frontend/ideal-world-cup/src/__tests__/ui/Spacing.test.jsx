@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Spacing from '../../components/ui/Spacing';
+import Spacing from '../../ui/Spacing';
 
 describe('<Spacing>', () => {
   it('renders without crashing', () => {

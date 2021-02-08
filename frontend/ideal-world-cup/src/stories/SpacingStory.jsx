@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Spacing from '../components/ui/Spacing';
+import Spacing from '../ui/Spacing';
 import { css } from '../components/withStyles';
 
 function RedBox({ children }) {
