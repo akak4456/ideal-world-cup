@@ -1,9 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import IdealWorldCupStartCard from '../../components/ideal_world_cup/IdealWorldCupStartCard';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 class IdealWorldCupStartContainer extends Component {
   render() {
-    return <IdealWorldCupStartCard />;
+    return (
+      <Container>
+        <Row>
+          <Col md>
+            <IdealWorldCupStartCard />
+          </Col>
+          <Col md>
+            <IdealWorldCupStartCard />
+          </Col>
+          <Col md>
+            <IdealWorldCupStartCard />
+          </Col>
+          <Col md>
+            <IdealWorldCupStartCard />
+          </Col>
+        </Row>
+        <Row>
+          <Col md>
+            <IdealWorldCupStartCard />
+          </Col>
+          <Col md>
+            <IdealWorldCupStartCard />
+          </Col>
+          <Col md></Col>
+          <Col md></Col>
+        </Row>
+      </Container>
+    );
   }
 }
 
