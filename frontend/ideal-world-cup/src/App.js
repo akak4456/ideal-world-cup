@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Button from 'react-bootstrap/Button';
+import AppLayout from './components/AppLayout';
 
 class App extends Component {
   render() {
-    return (
-      <div>
-        <Button>버튼</Button>
-      </div>
-    );
+    return <AppLayout>본문</AppLayout>;
   }
 }
 
