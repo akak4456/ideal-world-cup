@@ -1,8 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+import i18next from '../../config/lang/i18n';
 import { Button, ButtonGroup, Card, Container, Row, Col } from 'react-bootstrap';
 class IdealWorldCupStartCard extends PureComponent {
   render() {
+    const { t } = this.props;
     return (
       <Card>
         <Card.Title>이상형 월드컵 제목</Card.Title>
@@ -28,9 +31,9 @@ class IdealWorldCupStartCard extends PureComponent {
             </Row>
           </Container>
           <ButtonGroup size="lg" vertical style={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="outline-danger">시작하기</Button>
-            <Button variant="outline-warning">랭킹보기</Button>
-            <Button variant="outline-primary">공유</Button>
+            <Button variant="outline-danger">{t('start')}</Button>
+            <Button variant="outline-warning">{t('see_ranking')}</Button>
+            <Button variant="outline-primary">{t('share')}</Button>
           </ButtonGroup>
         </Card.Body>
       </Card>
@@ -40,4 +43,4 @@ class IdealWorldCupStartCard extends PureComponent {
 
 IdealWorldCupStartCard.propTypes = {};
 
-export default IdealWorldCupStartCard;
+export default withTranslation()(IdealWorldCupStartCard);
