@@ -4,6 +4,7 @@ import IdealWorldCupStartCard from '../../components/ideal_world_cup/IdealWorldC
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ImageList from '../../components/common/ImageList';
 class IdealWorldCupStartContainer extends Component {
   render() {
     return (
