@@ -14,8 +14,11 @@ class ImageList extends Component {
     this.setState({ files: fileList });
   };
   render() {
-    var reader = new FileReader();
-    reader.onload = function () {};
+    /*
+    드래그 앤 드롭을 하면
+    그림이 보이겠끔 해야 한다
+    ImageListStory로 테스트해보기
+    */
     return (
       <DragAndDrop handleDrop={this.handleDrop}>
         <div style={{ height: 300, width: 250 }}>
