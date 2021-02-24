@@ -50,7 +50,21 @@ class DragAndDrop extends Component {
     div.removeEventListener('drop', this.handleDrop);
   }
   render() {
-    return <CardDeck ref={this.dropRef}>{this.props.children}</CardDeck>;
+    const boxStyle = {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100px',
+      border: '1px solid black',
+    };
+    const zeroCardCaseComponent = <p>드롭해</p>;
+    const atLeastOneCardCaseComponent = <CardDeck>{this.props.children}</CardDeck>;
+    return (
+      <div style={boxStyle} ref={this.dropRef}>
+        {this.props.children ? atLeastOneCardCaseComponent : zeroCardCaseComponent}
+      </div>
+    );
   }
 }
 

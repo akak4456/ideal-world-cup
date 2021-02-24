@@ -9,7 +9,16 @@ class ImageList extends Component {
     let fileList = this.state.files;
     for (var i = 0; i < files.length; i++) {
       if (!files[i].name) return;
-      fileList.push(files[i]);
+      let reader = new FileReader();
+      let file = files[i];
+      reader.onloadend = () => {
+        const newFileItem = {
+          ...file,
+          previewURL: reader.result,
+        };
+        fileList.push(newFileItem);
+      };
+      reader.readAsDataURL(file);
     }
     this.setState({ files: fileList });
   };
@@ -19,18 +28,7 @@ class ImageList extends Component {
     그림이 보이겠끔 해야 한다
     ImageListStory로 테스트해보기
     */
-    return (
-      <DragAndDrop handleDrop={this.handleDrop}>
-        <div style={{ height: 300, width: 250 }}>
-          {this.state.files.map((file, idx) => {
-            var reader = new FileReader();
-            reader.onload = (function (f, i) {
-              return function (e) {};
-            })(file, idx);
-          })}
-        </div>
-      </DragAndDrop>
-    );
+    return <DragAndDrop handleDrop={this.handleDrop}></DragAndDrop>;
   }
 }
 
