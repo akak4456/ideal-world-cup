@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { CardDeck } from 'react-bootstrap';
 class DragAndDrop extends Component {
   state = {
     drag: false,
@@ -58,11 +57,9 @@ class DragAndDrop extends Component {
       minHeight: '100px',
       border: '1px solid black',
     };
-    const zeroCardCaseComponent = <p>드롭해</p>;
-    const atLeastOneCardCaseComponent = <CardDeck>{this.props.children}</CardDeck>;
     return (
       <div style={boxStyle} ref={this.dropRef}>
-        {this.props.children ? atLeastOneCardCaseComponent : zeroCardCaseComponent}
+        {this.props.children}
       </div>
     );
   }

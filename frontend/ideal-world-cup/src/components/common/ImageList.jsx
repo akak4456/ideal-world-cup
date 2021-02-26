@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 import DragAndDrop from './DragAndDrop';
 
 class ImageList extends Component {
@@ -6,7 +7,6 @@ class ImageList extends Component {
     files: [],
   };
   handleDrop = (files) => {
-    let fileList = this.state.files;
     for (var i = 0; i < files.length; i++) {
       if (!files[i].name) return;
       let reader = new FileReader();
@@ -16,19 +16,40 @@ class ImageList extends Component {
           ...file,
           previewURL: reader.result,
         };
-        fileList.push(newFileItem);
+        this.setState({
+          files: this.state.files.concat(newFileItem),
+        });
       };
       reader.readAsDataURL(file);
     }
-    this.setState({ files: fileList });
   };
   render() {
-    /*
-    드래그 앤 드롭을 하면
-    그림이 보이겠끔 해야 한다
-    ImageListStory로 테스트해보기
-    */
-    return <DragAndDrop handleDrop={this.handleDrop}></DragAndDrop>;
+    return (
+      <DragAndDrop handleDrop={this.handleDrop}>
+        {this.state.files.length == 0 ? (
+          <p>드롭해</p>
+        ) : (
+          <Container>
+            <Row>
+              {this.state.files.map((file, idx) => (
+                <Col sm={4}>
+                  <Card key={idx}>
+                    <Card.Img variant="top" src={file.previewURL} />
+                    <Card.Body>
+                      <Card.Title>Card Title</Card.Title>
+                      <Card.Text>
+                        Some quick example text to build on the card title and make up the bulk of
+                        the card's content.
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        )}
+      </DragAndDrop>
+    );
   }
 }
 
