@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import com.ideal.idealworldcupitem.domain.IdealWorldCupItem;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,15 +22,9 @@ import lombok.experimental.SuperBuilder;
 public class IdealWorldCup {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="i_seq")
-	private Long ino;
+	private Long ino;//이상형 월드컵 번호
 	
 	private String title;//이상형 월드컵 제목
 	
-	private String thumbnailSrc1;//이상형 월드컵 썸네일 1
-	
-	private String thumbnailDescription1;//이상형 월드컵 썸네일 설명 1
-	
-	private String thumbnailSrc2;//이상형 월드컵 썸네일 2
-	
-	private String thumbnailDescription2;//이상형 월드컵 썸네일 설명 1
+	private String detail;//이상형 월드컵 설명
 }
