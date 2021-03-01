@@ -2,19 +2,24 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 import ImageList from '../../components/common/ImageList';
+import { withTranslation } from 'react-i18next';
 class IdealWorldCupMaker extends PureComponent {
   render() {
+    const { t } = this.props;
     return (
       <Form>
         <Form.Group controlId="formTitle">
-          <Form.Label>제목</Form.Label>
-          <Form.Control type="text" placeholder="제목을 입력해주세요." />
+          <Form.Label>{t('title')}</Form.Label>
+          <Form.Control type="text" placeholder={t('input_title')} />
         </Form.Group>
         <Form.Group controlId="formDetail">
-          <Form.Label>설명</Form.Label>
-          <Form.Control type="text" placeholder="설명, 하고 싶은 말을 자유롭게 해주세요." />
+          <Form.Label>{t('detail')}</Form.Label>
+          <Form.Control type="text" placeholder={t('input_detail')} />
         </Form.Group>
-        <ImageList />
+        <Form.Group controlId="formImageList">
+          <Form.Label>{t('image_list')}</Form.Label>
+          <ImageList />
+        </Form.Group>
       </Form>
     );
   }
@@ -22,4 +27,4 @@ class IdealWorldCupMaker extends PureComponent {
 
 IdealWorldCupMaker.propTypes = {};
 
-export default IdealWorldCupMaker;
+export default withTranslation()(IdealWorldCupMaker);

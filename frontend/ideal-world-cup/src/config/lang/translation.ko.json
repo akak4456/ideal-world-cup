@@ -5,5 +5,10 @@
     "see_ranking":"랭킹보기",
     "drag_and_drop_here":"여기에 이미지를 드래그&드롭 해주세요",
     "image_name":"이미지 이름",
-    "delete":"삭제하기"
+    "delete":"삭제하기",
+    "title":"제목",
+    "detail":"설명",
+    "image_list":"이미지 리스트",
+    "input_title":"제목을 입력해주세요.",
+    "input_detail":"설명을 적어주세요"
 }
