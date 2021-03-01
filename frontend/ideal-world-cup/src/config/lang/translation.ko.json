@@ -11,5 +11,6 @@
     "image_list":"이미지 리스트",
     "input_title":"제목을 입력해주세요.",
     "input_detail":"설명을 적어주세요",
-    "save":"저장하기"
+    "save":"저장하기",
+    "count":"갯수"
 }
