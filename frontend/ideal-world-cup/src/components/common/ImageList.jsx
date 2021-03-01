@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, CardColumns, Form, Button, ButtonGroup } from 'react-bootstrap';
 import DragAndDrop from './DragAndDrop';
-
+import { withTranslation } from 'react-i18next';
 class ImageList extends Component {
   state = {
     files: [],
@@ -23,34 +23,48 @@ class ImageList extends Component {
       reader.readAsDataURL(file);
     }
   };
+  removeFile = (id) => {
+    console.log(id);
+    const { files } = this.state;
+    this.setState({
+      files: files.filter((file, idx) => idx != id),
+    });
+  };
   render() {
+    const { t } = this.props;
     return (
       <DragAndDrop handleDrop={this.handleDrop}>
         {this.state.files.length == 0 ? (
-          <p>드롭해</p>
+          <p>{t('drag_and_drop_here')}</p>
         ) : (
-          <Container>
-            <Row>
-              {this.state.files.map((file, idx) => (
-                <Col sm={4}>
-                  <Card key={idx}>
-                    <Card.Img variant="top" src={file.previewURL} />
-                    <Card.Body>
-                      <Card.Title>Card Title</Card.Title>
-                      <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </Container>
+          <CardColumns>
+            {this.state.files.map((file, idx) => (
+              <Card key={idx}>
+                <Card.Img variant="top" src={file.previewURL} />
+                <Card.Body>
+                  <Form>
+                    <Form.Group controlId="formTitle">
+                      <Form.Label>{t('image_name')}</Form.Label>
+                      <Form.Control type="text" />
+                    </Form.Group>
+                  </Form>
+                  <ButtonGroup
+                    size="lg"
+                    vertical
+                    style={{ display: 'flex', justifyContent: 'center' }}
+                  >
+                    <Button variant="danger" onClick={() => this.removeFile(idx)}>
+                      {t('delete')}
+                    </Button>
+                  </ButtonGroup>
+                </Card.Body>
+              </Card>
+            ))}
+          </CardColumns>
         )}
       </DragAndDrop>
     );
   }
 }
 
-export default ImageList;
+export default withTranslation()(ImageList);

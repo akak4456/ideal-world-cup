@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
+import ImageList from '../../components/common/ImageList';
 class IdealWorldCupMaker extends PureComponent {
   render() {
     return (
@@ -13,6 +14,7 @@ class IdealWorldCupMaker extends PureComponent {
           <Form.Label>설명</Form.Label>
           <Form.Control type="text" placeholder="설명, 하고 싶은 말을 자유롭게 해주세요." />
         </Form.Group>
+        <ImageList />
       </Form>
     );
   }

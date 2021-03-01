@@ -33,7 +33,6 @@ class IdealWorldCupStartContainer extends Component {
           <Col md></Col>
           <Col md></Col>
         </Row>
-        <ImageList />
       </Container>
     );
   }
