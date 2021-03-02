@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import ImageList from '../../components/common/ImageList';
 import { withTranslation } from 'react-i18next';
+import Api from '../../Api';
 class IdealWorldCupMaker extends PureComponent {
   constructor(props) {
     super(props);
     this.handleDrop.bind(this);
     this.handleRemove.bind(this);
+    this.handleSubmit.bind(this);
     this.state = {
       files: [],
     };
@@ -36,6 +38,9 @@ class IdealWorldCupMaker extends PureComponent {
       files: files.filter((file, idx) => idx != id),
     });
   };
+  handleSubmit = () => {
+    Api.post('/idealworldcup', { params: {} }).then((response) => console.log(response));
+  };
   render() {
     const { t } = this.props;
     return (
@@ -48,7 +53,7 @@ class IdealWorldCupMaker extends PureComponent {
           <Form.Label>{t('detail')}</Form.Label>
           <Form.Control type="text" placeholder={t('input_detail')} />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" onClick={() => this.handleSubmit()}>
           {t('save')}
         </Button>
         <Form.Group controlId="formImageList">

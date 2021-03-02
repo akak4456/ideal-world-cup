@@ -33,7 +33,9 @@ public class IdealWorldCupItem {
 	@NotNull
 	private IdealWorldCupItemType type;//타입
 	
-	private String src;
+	private String src;//주소
+	
+	private String name;//이름
 	
 	@ManyToOne
 	@JoinColumn(name="ino")
