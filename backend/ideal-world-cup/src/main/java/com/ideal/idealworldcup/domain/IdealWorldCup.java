@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
-import com.ideal.idealworldcupitem.domain.IdealWorldCupItem;
+import com.ideal.member.domain.MemberEntity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,4 +29,8 @@ public class IdealWorldCup {
 	private String title;//이상형 월드컵 제목
 	
 	private String detail;//이상형 월드컵 설명
+	
+	@ManyToOne
+	@JoinColumn(name="email")
+	private MemberEntity member;
 }

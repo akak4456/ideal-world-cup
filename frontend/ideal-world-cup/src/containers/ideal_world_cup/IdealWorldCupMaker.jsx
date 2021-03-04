@@ -10,7 +10,11 @@ class IdealWorldCupMaker extends PureComponent {
     this.handleDrop.bind(this);
     this.handleRemove.bind(this);
     this.handleSubmit.bind(this);
+    this.handleChange.bind(this);
+    this.handleImageDetailChange.bind(this);
     this.state = {
+      title: '',
+      detail: '',
       files: [],
     };
   }
@@ -23,8 +27,10 @@ class IdealWorldCupMaker extends PureComponent {
         const newFileItem = {
           ...file,
           previewURL: reader.result,
+          imageDetail: '',
         };
         this.setState({
+          ...this.state,
           files: this.state.files.concat(newFileItem),
         });
       };
@@ -32,14 +38,27 @@ class IdealWorldCupMaker extends PureComponent {
     }
   };
   handleRemove = (id) => {
-    console.log(id);
     const { files } = this.state;
     this.setState({
       files: files.filter((file, idx) => idx != id),
     });
   };
   handleSubmit = () => {
+    console.log(this.state);
     Api.post('/idealworldcup', { params: {} }).then((response) => console.log(response));
+  };
+  handleChange = (e) => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value,
+    });
+  };
+  handleImageDetailChange = (e, idx) => {
+    const { files } = this.state;
+    this.setState({
+      ...this.state,
+      files: files.map((item, i) => (i === idx ? { ...item, imageDetail: e.target.value } : item)),
+    });
   };
   render() {
     const { t } = this.props;
@@ -47,11 +66,23 @@ class IdealWorldCupMaker extends PureComponent {
       <Form>
         <Form.Group controlId="formTitle">
           <Form.Label>{t('title')}</Form.Label>
-          <Form.Control type="text" placeholder={t('input_title')} />
+          <Form.Control
+            type="text"
+            placeholder={t('input_title')}
+            name="title"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
         </Form.Group>
         <Form.Group controlId="formDetail">
           <Form.Label>{t('detail')}</Form.Label>
-          <Form.Control type="text" placeholder={t('input_detail')} />
+          <Form.Control
+            type="text"
+            placeholder={t('input_detail')}
+            name="detail"
+            value={this.state.detail}
+            onChange={this.handleChange}
+          />
         </Form.Group>
         <Button variant="primary" onClick={() => this.handleSubmit()}>
           {t('save')}
@@ -64,6 +95,7 @@ class IdealWorldCupMaker extends PureComponent {
             handleDrop={this.handleDrop}
             handleRemove={this.handleRemove}
             files={this.state.files}
+            handleImageDetailChange={this.handleImageDetailChange}
           />
         </Form.Group>
       </Form>

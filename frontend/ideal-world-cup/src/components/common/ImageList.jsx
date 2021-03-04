@@ -4,7 +4,7 @@ import DragAndDrop from './DragAndDrop';
 import { withTranslation } from 'react-i18next';
 class ImageList extends Component {
   render() {
-    const { t, handleDrop, handleRemove, files } = this.props;
+    const { t, handleDrop, handleRemove, files, handleImageDetailChange } = this.props;
     return (
       <DragAndDrop handleDrop={handleDrop}>
         {files.length == 0 ? (
@@ -18,7 +18,11 @@ class ImageList extends Component {
                   <Form>
                     <Form.Group controlId="formTitle">
                       <Form.Label>{t('image_name')}</Form.Label>
-                      <Form.Control type="text" />
+                      <Form.Control
+                        type="text"
+                        value={file.imageDetail}
+                        onChange={(e) => handleImageDetailChange(e, idx)}
+                      />
                     </Form.Group>
                   </Form>
                   <ButtonGroup
