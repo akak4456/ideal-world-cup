@@ -19,13 +19,13 @@ class IdealWorldCupMaker extends PureComponent {
     };
   }
   handleDrop = (files) => {
-    for (var i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       if (!files[i].name) return;
-      let reader = new FileReader();
-      let file = files[i];
+      const reader = new FileReader();
+      const file = files[i];
       reader.onloadend = () => {
         const newFileItem = {
-          ...file,
+          file: file,
           previewURL: reader.result,
           imageDetail: '',
         };
@@ -45,7 +45,11 @@ class IdealWorldCupMaker extends PureComponent {
   };
   handleSubmit = () => {
     console.log(this.state);
-    Api.post('/idealworldcup', { params: {} }).then((response) => console.log(response));
+    Api.post(
+      '/idealworldcup',
+      { ...this.state },
+      { headers: { 'Content-Type': 'multipart/form-data' } },
+    ).then((response) => console.log(response));
   };
   handleChange = (e) => {
     this.setState({
